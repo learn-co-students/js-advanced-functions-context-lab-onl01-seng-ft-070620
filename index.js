@@ -59,6 +59,7 @@ function allWagesFor() {
     let datesWorked = this.timeInEvents.map(timeInEvent => timeInEvent.date)
 
     let paycheck = datesWorked.reduce(((tally, date) => tally + wagesEarnedOnDate.call(this, date)).bind(this), 0)
+
     return paycheck
 }
 
@@ -74,9 +75,10 @@ function allWagesFor() {
 //     return payable
 // }
 
-function findEmployeeByFirstName(employeeArray, employeeName) {
+function findEmployeeByFirstName(employeeArray, employeeInfo) {
     return employeeArray.find(employeeInfo => employeeInfo.firstName)
 }
+
 function calculatePayroll(employeesArray) {
     return employeesArray.reduce((payrollTally, employee) => payrollTally + allWagesFor.call(employee), 0)
 }
